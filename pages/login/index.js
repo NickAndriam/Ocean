@@ -11,11 +11,8 @@ export default function DefaultLogin() {
     }, [1])
     const router = useRouter()
     const onOpening = () => {
-        router.push('/')
+        router.push('/dashboard')
     }
-
-
-
 
     return (
         <div>

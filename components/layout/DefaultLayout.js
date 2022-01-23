@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { useRouter } from "next/router"
 import Leftbar from "../bars/Leftbar"
 import RightBar from "../bars/RightBar"
 import Filter from "../filter/Filter"
@@ -12,6 +13,10 @@ export default function ({ children, ...props }) {
     return (<link key={locale} rel="alternate" href={`${domain}${locale !== props.router.defaultLocale ? '/' + locale : ''}${props.router.asPath}`} hrefLang={locale} />)
   })
 
+  const router = useRouter()
+  const route = router.route
+
+
   return (
     <>
       <Head>
@@ -24,8 +29,8 @@ export default function ({ children, ...props }) {
       </Head>
       <main>
         <Filter />
-        <Leftbar />
-        <RightBar />
+        {route !== '/' && <Leftbar />}
+        {route !== '/' && <RightBar />}
         {children}
       </main>
     </>
