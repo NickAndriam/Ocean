@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import LoginInput from '../../components/loginInput/LoginInput'
 import { useRouter } from 'next/router'
-import Filter from '../../components/filter/Filter'
 import axios from 'axios'
 
 export default function DefaultLogin() {
