@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Avatar from '../avatar/Avatar'
-import CustomList from '../customList/customList'
+import CustomList from '../customList/CustomList'
 
 export default function RightBar() {
     const router = useRouter()
