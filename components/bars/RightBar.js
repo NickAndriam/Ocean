@@ -8,18 +8,18 @@ export default function RightBar() {
     const router = useRouter()
     if (router.route !== '/login') {
         return (
-            <motion.div className='absolute transform top-1/2 right-0 -translate-y-1/2 
+            <motion.section className='absolute transform top-1/2 right-0 -translate-y-1/2 
         h-[90vh] w-[70vw] bg-[#FAFAFA] rounded-[50px] shadow-lg'
                 style={{ position: 'absolute', top: '50%', translateY: '-50%', right: 0 }}
                 animate={{ x: ['0vw', '-10vw'] }}
                 transition={{ duration: 0.5 }}
             >
                 <Avatar />
-                <div className='absolute right-20 top-20 w-2/3'>
+                <section className='absolute right-20 top-20 w-2/3'>
                     <CustomList title='Social Media' />
                     <CustomList title="Interesting Links" />
-                </div>
-            </motion.div>
+                </section>
+            </motion.section>
         )
     } else return null
 }

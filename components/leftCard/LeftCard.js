@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function LeftCard({ title = "title", description = "desc" }) {
     return (
-        <div className='bg-white w-full h-24 rounded-[20px] flex overflow-hidden items-center my-4'>
+        <div className='bg-white w-full h-24 rounded-[20px] flex overflow-hidden items-center my-4 hover:cursor-pointer hover:scale-105 transition-all ease-linear'>
             <div className='w-1/3 grid place-items-center'>
                 <img src='/assets/svg/work.svg' alt="work" width={30} />
             </div>
