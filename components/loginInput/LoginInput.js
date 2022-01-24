@@ -17,7 +17,7 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
     }
 
     return (
-        <motion.div className='flex flex-col justify-start items-center z-[2] transition-all w-full'
+        <motion.section className='flex flex-col justify-start items-center z-[2] transition-all w-full'
             onBlur={() => setOpen(false)}
             animate={{ y: open ? -10 : 0 }}
             transition={{ duration: 0.1 }}
@@ -25,7 +25,7 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
             <div
                 className={`relative bg-gray-700 w-40 h-40 rounded-full m-4 z-[2] 
                 shadow-lg grid place-items-center   ${open ? 'border-2 border-ocean' : 'border-none'}
-                transition-all ease`}
+                transition-all ease cursor-pointer`}
                 onClick={() => clicked()}>
                 <img src={image} className={`absolute top-0 left-0 w-full h-full 
                         transition-all ease-in rounded-full 
@@ -52,6 +52,6 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
                 transition={{ duration: 0.3 }}>
                 {open && <CoolInput placeholder="Password" autoFocus={open} type="password" onKeyDown={onEntered} />}
             </motion.div>
-        </motion.div >
+        </motion.section >
     )
 }
