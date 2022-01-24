@@ -27,7 +27,10 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
                 shadow-lg grid place-items-center   ${open ? 'border-2 border-ocean' : 'border-none'}
                 transition-all ease`}
                 onClick={() => clicked()}>
-                <img src={image} className='absolute top-0 left-0 w-full h-full transition-all ease-in rounded-full' alt="image" />
+                <img src={image} className={`absolute top-0 left-0 w-full h-full 
+                        transition-all ease-in rounded-full 
+                        ${open ? 'opacity-60' : 'opacity-100'}`}
+                    alt="image" />
                 {open && <motion.p className='text-white text-xl z-10'
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -37,9 +40,9 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.4 }}>
-                {!open && <h2 className='text-4xl text-gray-400 font-thin w-full'
+                {!open && <h2 className='text-4xl text-gray-500 font-thin w-full'
                 >Welcome
-                    <span className='text-4xl text-ocean font-bold'> {user}</span>
+                    <span className='text-4xl text-ocean font-thin'> {user}</span>
                     !</h2>}
             </motion.div>
             <motion.div
