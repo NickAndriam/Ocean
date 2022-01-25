@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import Leftbar from "../bars/Leftbar"
@@ -15,18 +16,13 @@ export default function ({ children, ...props }) {
 
   const router = useRouter()
   const route = router.route
+  const [loading, setLoading] = useState(true)
 
-
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 200)
+  }, [1])
   return (
     <>
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <meta property="og:title" content={metaTitle} key="ogtitle" />
-        <meta property="og:description" content={metaDescription} key="ogdescription" />
-        {hreflangs}
-        <link rel="canonical" href={domain + props.router.asPath} />
-      </Head>
       <main>
         <Filter />
         {route !== '/' && <Leftbar />}

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import React from 'react'
 import LeftCard from '../leftCard/LeftCard'
-import AppButton from '../../components/button/AppButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { HiArrowSmLeft } from 'react-icons/hi'
 import { AiOutlinePlus } from 'react-icons/ai'
@@ -12,7 +11,12 @@ import RoundedIcon from '../roudedIcon/RoundedIcon';
 export default function Leftbar() {
     const router = useRouter()
     const dispatch = useDispatch()
-    const { openLBar } = useSelector(s => s.animations)
+    const { openLBar, openNCTab } = useSelector(s => s.animations)
+
+    const newCategory = () => {
+        dispatch({ type: 'OPEN_NCTAB', openNCTab: true })
+        router.push('dashboard/add-category')
+    }
 
     const animateLeftbar = {
         open: {
@@ -42,14 +46,6 @@ export default function Leftbar() {
                     <LeftCard title='Social Media' description='sup sup dawgs' />
                     <LeftCard title='Work' description='Hope I remember this one' />
                 </div>
-                <aside className='absolute bottom-0 h-28 w-full flex justify-center items-center'>
-                    <RoundedIcon Icon={AiOutlinePlus}
-                        bg='bg-white'
-                        iColor="text-ocean"
-                        iHoverColor="hover:text-white"
-                        onClick={() => dispatch({ type: 'OPEN_LBAR', openLBar: !openLBar })}
-                    />
-                </aside>
                 {openLBar && <RoundedIcon
                     Icon={HiArrowSmLeft}
                     bg='bg-white'
@@ -58,6 +54,14 @@ export default function Leftbar() {
                     onClick={() => dispatch({ type: 'OPEN_LBAR', openLBar: !openLBar })}
                     className="absolute right-4 top-4"
                 />}
+                <aside className='absolute bottom-0 h-28 w-full flex justify-center items-center'>
+                    <RoundedIcon Icon={AiOutlinePlus}
+                        bg='bg-white'
+                        iColor="text-ocean"
+                        iHoverColor="hover:text-white"
+                        onClick={() => newCategory()}
+                    />
+                </aside>
             </motion.section>
         )
     } else return null

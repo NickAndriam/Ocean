@@ -40,9 +40,9 @@ export default function LoginInput({ onClick, user, onKeydown, image }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.4 }}>
-                {!open && <h2 className='text-4xl text-gray-500 font-thin w-full'
+                {!open && <h2 className='lg:text-4xl text-3xl text-gray-500 font-thin w-full'
                 >Welcome
-                    <span className='text-4xl text-ocean font-thin'> {user}</span>
+                    <span className='lg:text-4xl text-3xl text-ocean font-thin'> {user}</span>
                     !</h2>}
             </motion.div>
             <motion.div
